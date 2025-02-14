@@ -3,13 +3,11 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Star, Truck, Moon, ActivitySquare, Heart, AlignJustify, Shield, Zap, } from 'lucide-react'
-import { Header } from "@/components/Header/header"
 
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-gray-800">
-      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6 border-0">
@@ -34,7 +32,7 @@ export default function Home() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row border-0">
                   <Link href="#contact">
                     <Button size="lg" className="bg-dreamblue text-white hover:bg-dreamblue/90 border-0">
-                      Prueba 100 noches
+                      Personaliza tu colchón
                     </Button>
                   </Link>
                   <Link href="#features">
@@ -79,7 +77,7 @@ export default function Home() {
                 <CardContent className="flex flex-col items-center space-y-4 p-6">
                   <Truck className="h-12 w-12 text-dreamgold" />
                   <h3 className="text-xl font-bold text-dreamgold">Envío gratuito</h3>
-                  <p className="text-center text-gray-600">Entrega sin costo adicional a cualquier parte del país.</p>
+                  <p className="text-center text-gray-600">Entrega sin costo adicional en el Valle de Aburrá - Medellín.</p>
                 </CardContent>
               </Card>
             </div>
@@ -88,7 +86,7 @@ export default function Home() {
         <section id="beneficios-salud" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-dreamgold">
-              Beneficios de DreamSleep para tu salud
+              Beneficios para tu salud
             </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
@@ -140,14 +138,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dreamgold">Prueba DreamSleep hoy</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dreamgold">Prueba tu colchón hoy</h2>
               <p className="max-w-[600px] text-gray-600 md:text-xl">
-                100 noches de prueba. Si no estás satisfecho, te devolvemos tu dinero.
+                Date el gusto de probar un colchón de calidad y al mejor precio
               </p>
-              <Link href="#">
+              <Link href="/customize">
                 <Button size="lg" className="bg-dreamblue text-white hover:bg-dreamblue/90">
                   Comprar ahora
                 </Button>
@@ -156,17 +154,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-200 bg-gray-100">
-        <p className="text-xs text-gray-600">© 2024 DreamSleep. Todos los derechos reservados.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:text-dreamgold" href="#">
-            Términos de servicio
-          </Link>
-          <Link className="text-xs hover:text-dreamgold" href="#">
-            Política de privacidad
-          </Link>
-        </nav>
-      </footer>
     </div>
   )
 }
