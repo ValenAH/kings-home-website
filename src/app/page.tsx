@@ -9,8 +9,10 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-gray-800">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6 border-0">
+        <section className="w-full pt-24 pb-12 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 xl:pt-56 xl:pb-48 bg-[#0a0a0a] relative overflow-hidden">
+          {/* Gradiente radial en la esquina superior izquierda */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_#b1c8ea_0,_#305f9f_0%,_transparent_40%)]"></div>
+          <div className="container px-8 md:px-12 lg:px-16 xl:px-20 border-0 relative z-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px] border-0">
               <Image
                 alt="Colchón DreamSleep"
@@ -19,36 +21,47 @@ export default function Home() {
                 src="/loginBackground.jpg"
                 width={550}
               />
-              <div className="flex flex-col justify-center space-y-4 border-0">
-                <div className="space-y-2 border-0">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-dreamgold border-0">
-                    Descubre el sueño perfecto
+              <div className="flex flex-col justify-center border-0">
+                <div className="border-0">
+                  <h1 className="text-4xl sm:text-5xl xl:text-6xl text-[#CFA15C] border-0 font-[family-name:var(--font-abril-fatface)]">
+                    Dormir bien puede<br />cambiar tu vida
                   </h1>
-                  <p className="max-w-[600px] text-gray-600 md:text-xl border-0">
-                    Nuestros colchones están diseñados para brindarte el mejor descanso de tu vida. Calidad, comodidad y
-                    tecnología en cada capa.
+                  <p className="max-w-[600px] text-gray-300 md:text-lg border-0 mt-10 font-[family-name:var(--font-outfit)]">
+                    Colchones diseñados para transformar la forma en que duermes
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row border-0">
-                  <Link href="#contact">
-                    <Button size="lg" className="bg-dreamblue text-white hover:bg-dreamblue/90 border-0">
-                      Personaliza tu colchón
-                    </Button>
-                  </Link>
-                  <Link href="#features">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-dreamblue text-dreamblue hover:bg-dreamblue hover:text-white"
-                    >
-                      Descubre más
-                    </Button>
+                <div className="mt-12">
+                  <Link 
+                    href="https://wa.me/573196835927" 
+                    target="_blank"
+                    className="inline-block px-8 py-4 !border !border-solid !border-gray-500 text-[#C8C6C6] font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:!border-white hover:text-white transition-colors"
+                  >
+                    Asesoría personalizada
                   </Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        
+        {/* Sección Crafted for Comfort */}
+        <section className="w-full py-16 md:py-24 lg:py-32 bg-white">
+          <div className="container px-8 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-abril-fatface)] text-black mb-6">
+              Diseñados para un confort inigualable
+            </h2>
+            <p className="max-w-[600px] text-gray-500 md:text-lg font-[family-name:var(--font-outfit)] mb-10">
+              Experimenta el pináculo del lujo en el descanso con nuestros colchones excepcionales. Diseñados para adaptarse a los contornos únicos de tu cuerpo.
+            </p>
+            <Link 
+              href="/customize"
+              className="inline-block px-8 py-4 bg-black text-white font-[family-name:var(--font-outfit)] text-sm tracking-wide hover:bg-gray-800 transition-colors"
+            >
+              Explorar colección
+            </Link>
+          </div>
+        </section>
+
         <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-dreamgold">
