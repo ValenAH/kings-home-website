@@ -1,11 +1,20 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Abril_Fatface, Outfit } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/Header/header" 
 import Link from "next/link" 
 import type React from "react"
 
 const inter = Inter({ subsets: ["latin"] })
+const abrilFatface = Abril_Fatface({ 
+  weight: "400", 
+  subsets: ["latin"],
+  variable: "--font-abril-fatface"
+})
+const outfit = Outfit({ 
+  subsets: ["latin"],
+  variable: "--font-outfit"
+})
 
 export const metadata: Metadata = {
   title: "Hogar de Reyes - Tu descanso perfecto",
@@ -19,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${abrilFatface.variable} ${outfit.variable} relative`}>
         <Header />
         {children}
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-200 bg-gray-100">
