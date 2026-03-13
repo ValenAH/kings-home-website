@@ -64,14 +64,14 @@ export default function Home() {
 
         <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-dreamgold">
-              Características principales
+            <h2 className="text-3xl sm:text-5xl text-center mb-12 text-dreamgold font-[family-name:var(--font-abril-fatface)]">
+              La diferencia se siente desde la primera noche
             </h2>
             <div className="grid gap-6 lg:grid-cols-3">
               <Card className="bg-white border-gray-200">
                 <CardContent className="flex flex-col items-center space-y-4 p-6">
                   <CheckCircle className="h-12 w-12 text-dreamgold" />
-                  <h3 className="text-xl font-bold text-dreamgold">Materiales de alta calidad</h3>
+                  <h3 className="text-xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">Materiales de alta calidad</h3>
                   <p className="text-center text-gray-600">
                     Utilizamos los mejores materiales para garantizar durabilidad y comodidad.
                   </p>
@@ -80,7 +80,7 @@ export default function Home() {
               <Card className="bg-white border-gray-200">
                 <CardContent className="flex flex-col items-center space-y-4 p-6">
                   <Star className="h-12 w-12 text-dreamgold" />
-                  <h3 className="text-xl font-bold text-dreamgold">Tecnología de soporte</h3>
+                  <h3 className="text-xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">Tecnología de soporte</h3>
                   <p className="text-center text-gray-600">
                     Diseño ergonómico que se adapta a tu cuerpo para un descanso óptimo.
                   </p>
@@ -89,7 +89,7 @@ export default function Home() {
               <Card className="bg-white border-gray-200">
                 <CardContent className="flex flex-col items-center space-y-4 p-6">
                   <Truck className="h-12 w-12 text-dreamgold" />
-                  <h3 className="text-xl font-bold text-dreamgold">Envío gratuito</h3>
+                  <h3 className="text-xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">Envío gratuito</h3>
                   <p className="text-center text-gray-600">Entrega sin costo adicional en el Valle de Aburrá - Medellín.</p>
                 </CardContent>
               </Card>
@@ -98,7 +98,7 @@ export default function Home() {
         </section>
         <section id="beneficios-salud" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-dreamgold">
+            <h2 className="text-3xl sm:text-5xl text-center mb-12 text-dreamgold font-[family-name:var(--font-abril-fatface)]">
               Beneficios para tu salud
             </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -143,7 +143,7 @@ export default function Home() {
                     <div className="p-3 rounded-full bg-dreamblue">
                       {benefit.icon && <benefit.icon className="h-6 w-6 text-white" />}
                     </div>
-                    <h3 className="text-xl font-bold text-dreamgold">{benefit.title}</h3>
+                    <h3 className="text-xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">{benefit.title}</h3>
                     <p className="text-center text-gray-600">{benefit.description}</p>
                   </CardContent>
                 </Card>
@@ -154,7 +154,7 @@ export default function Home() {
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dreamgold">Prueba tu colchón hoy</h2>
+              <h2 className="text-3xl sm:text-5xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">Prueba tu colchón hoy</h2>
               <p className="max-w-[600px] text-gray-600 md:text-xl">
                 Date el gusto de probar un colchón de calidad y al mejor precio
               </p>
