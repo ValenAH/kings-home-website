@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Moon, ActivitySquare, Heart, AlignJustify, Shield, Zap } from 'lucide-react'
+import { Moon, ActivitySquare, Heart } from 'lucide-react'
 
 
 export default function Home() {
@@ -67,7 +67,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-5xl text-center mb-12 text-dreamgold font-[family-name:var(--font-abril-fatface)]">
               La diferencia se siente desde la primera noche
             </h2>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
               {[
                 {
                   title: "Mejora la calidad del sueño",
@@ -86,22 +86,6 @@ export default function Home() {
                   description:
                     "Un buen descanso nocturno ayuda a regular los niveles de cortisol, reduciendo el estrés diario.",
                   icon: Heart,
-                },
-                {
-                  title: "Mejora la postura",
-                  description:
-                    "Mantiene tu columna alineada durante la noche, contribuyendo a una mejor postura durante el día.",
-                  icon: AlignJustify,
-                },
-                {
-                  title: "Fortalece el sistema inmunológico",
-                  description: "Un sueño de calidad potencia tu sistema inmune, ayudándote a mantenerte saludable.",
-                  icon: Shield,
-                },
-                {
-                  title: "Aumenta la productividad",
-                  description: "Despertar descansado mejora tu concentración y rendimiento durante el día.",
-                  icon: Zap,
                 },
               ].map((benefit, index) => (
                 <Card key={index} className="bg-zinc-900 border-zinc-800">
