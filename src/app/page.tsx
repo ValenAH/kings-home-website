@@ -15,11 +15,11 @@ export default function Home() {
           <div className="container px-8 md:px-12 lg:px-16 xl:px-20 border-0 relative z-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px] border-0">
               <Image
-                alt="Colchón Semiortopédico"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last border-0"
-                height={550}
-                src="/semiortopedico.png"
-                width={550}
+                alt="Colchón Magnate con almohadas"
+                className="mx-auto overflow-hidden rounded-xl object-contain sm:w-full lg:order-last border-0"
+                height={700}
+                src="/magnate_almohadas.png"
+                width={700}
               />
               <div className="flex flex-col justify-center border-0">
                 <div className="border-0">
