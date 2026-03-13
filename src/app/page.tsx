@@ -20,6 +20,8 @@ export default function Home() {
                 height={700}
                 src="/magnate_almohadas.png"
                 width={700}
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
               />
               <div className="flex flex-col justify-center border-0">
                 <div className="border-0">
