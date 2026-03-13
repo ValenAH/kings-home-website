@@ -18,7 +18,7 @@ export default function Home() {
                 alt="Colchón Semiortopédico"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last border-0"
                 height={550}
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/semiortopedico-2TMxBFbUCy6V2MRBzPkjDcNFIEKx8u.png"
+                src="/semiortopedico.png"
                 width={550}
               />
               <div className="flex flex-col justify-center border-0">
