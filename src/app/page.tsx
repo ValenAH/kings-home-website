@@ -17,11 +17,11 @@ export default function Home() {
               <Image
                 alt="Colchón Magnate con almohadas"
                 className="mx-auto overflow-hidden rounded-xl object-contain sm:w-full lg:order-last border-0"
-                height={700}
-                src="/magnate_almohadas.png"
-                width={700}
+                height={900}
+                src="/magnate_almohadas_optimized.png"
+                width={900}
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
               />
               <div className="flex flex-col justify-center border-0">
                 <div className="border-0">
