@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle, Star, Truck, Moon, ActivitySquare, Heart, AlignJustify, Shield, Zap, } from 'lucide-react'
+import { CheckCircle, Star, Moon, ActivitySquare, Heart, AlignJustify, Shield, Zap } from 'lucide-react'
 
 
 export default function Home() {
@@ -67,7 +67,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-5xl text-center mb-12 text-dreamgold font-[family-name:var(--font-abril-fatface)]">
               La diferencia se siente desde la primera noche
             </h2>
-            <div className="grid gap-6 lg:grid-cols-3">
+            <div className="grid gap-6 lg:grid-cols-2 max-w-4xl mx-auto">
               <Card className="bg-white border-gray-200">
                 <CardContent className="flex flex-col items-center space-y-4 p-6">
                   <CheckCircle className="h-12 w-12 text-dreamgold" />
@@ -84,13 +84,6 @@ export default function Home() {
                   <p className="text-center text-gray-600">
                     Diseño ergonómico que se adapta a tu cuerpo para un descanso óptimo.
                   </p>
-                </CardContent>
-              </Card>
-              <Card className="bg-white border-gray-200">
-                <CardContent className="flex flex-col items-center space-y-4 p-6">
-                  <Truck className="h-12 w-12 text-dreamgold" />
-                  <h3 className="text-xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">Envío gratuito</h3>
-                  <p className="text-center text-gray-600">Entrega sin costo adicional en el Valle de Aburrá - Medellín.</p>
                 </CardContent>
               </Card>
             </div>
