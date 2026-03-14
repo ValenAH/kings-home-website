@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle, Star, Truck, Moon, ActivitySquare, Heart, AlignJustify, Shield, Zap, } from 'lucide-react'
+import { Moon, ActivitySquare, Heart } from 'lucide-react'
 
 
 export default function Home() {
@@ -15,11 +15,13 @@ export default function Home() {
           <div className="container px-8 md:px-12 lg:px-16 xl:px-20 border-0 relative z-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px] border-0">
               <Image
-                alt="Colchón DreamSleep"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last border-0"
-                height={550}
-                src="/loginBackground.jpg"
-                width={550}
+                alt="Colchón Magnate con almohadas"
+                className="mx-auto overflow-hidden rounded-xl object-contain sm:w-full lg:order-last border-0"
+                height={900}
+                src="/magnate_almohadas_optimized.png"
+                width={900}
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
               />
               <div className="flex flex-col justify-center border-0">
                 <div className="border-0">
@@ -62,46 +64,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-black">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-dreamgold">
-              Características principales
+            <h2 className="text-3xl sm:text-5xl text-center mb-12 text-dreamgold font-[family-name:var(--font-abril-fatface)]">
+              La diferencia se siente desde la primera noche
             </h2>
-            <div className="grid gap-6 lg:grid-cols-3">
-              <Card className="bg-white border-gray-200">
-                <CardContent className="flex flex-col items-center space-y-4 p-6">
-                  <CheckCircle className="h-12 w-12 text-dreamgold" />
-                  <h3 className="text-xl font-bold text-dreamgold">Materiales de alta calidad</h3>
-                  <p className="text-center text-gray-600">
-                    Utilizamos los mejores materiales para garantizar durabilidad y comodidad.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="bg-white border-gray-200">
-                <CardContent className="flex flex-col items-center space-y-4 p-6">
-                  <Star className="h-12 w-12 text-dreamgold" />
-                  <h3 className="text-xl font-bold text-dreamgold">Tecnología de soporte</h3>
-                  <p className="text-center text-gray-600">
-                    Diseño ergonómico que se adapta a tu cuerpo para un descanso óptimo.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="bg-white border-gray-200">
-                <CardContent className="flex flex-col items-center space-y-4 p-6">
-                  <Truck className="h-12 w-12 text-dreamgold" />
-                  <h3 className="text-xl font-bold text-dreamgold">Envío gratuito</h3>
-                  <p className="text-center text-gray-600">Entrega sin costo adicional en el Valle de Aburrá - Medellín.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-        <section id="beneficios-salud" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-dreamgold">
-              Beneficios para tu salud
-            </h2>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
               {[
                 {
                   title: "Mejora la calidad del sueño",
@@ -121,40 +89,59 @@ export default function Home() {
                     "Un buen descanso nocturno ayuda a regular los niveles de cortisol, reduciendo el estrés diario.",
                   icon: Heart,
                 },
-                {
-                  title: "Mejora la postura",
-                  description:
-                    "Mantiene tu columna alineada durante la noche, contribuyendo a una mejor postura durante el día.",
-                  icon: AlignJustify,
-                },
-                {
-                  title: "Fortalece el sistema inmunológico",
-                  description: "Un sueño de calidad potencia tu sistema inmune, ayudándote a mantenerte saludable.",
-                  icon: Shield,
-                },
-                {
-                  title: "Aumenta la productividad",
-                  description: "Despertar descansado mejora tu concentración y rendimiento durante el día.",
-                  icon: Zap,
-                },
               ].map((benefit, index) => (
-                <Card key={index} className="bg-white border-gray-200">
+                <Card key={index} className="bg-zinc-900 border-zinc-800">
                   <CardContent className="flex flex-col items-center space-y-4 p-6">
                     <div className="p-3 rounded-full bg-dreamblue">
                       {benefit.icon && <benefit.icon className="h-6 w-6 text-white" />}
                     </div>
-                    <h3 className="text-xl font-bold text-dreamgold">{benefit.title}</h3>
-                    <p className="text-center text-gray-600">{benefit.description}</p>
+                    <h3 className="text-xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">{benefit.title}</h3>
+                    <p className="text-center text-gray-400">{benefit.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
         </section>
+        {/* Sección Colección de Colchones */}
+        <section id="coleccion" className="w-full py-12 md:py-24 lg:py-32 bg-black">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl sm:text-5xl text-center mb-12 text-dreamgold font-[family-name:var(--font-abril-fatface)]">
+              Nuestra Colección
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
+                <Image
+                  src="/emperador_fondo.jpg"
+                  alt="Colchón Emperador"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
+                <Image
+                  src="/placeholder-colchon-2.jpg"
+                  alt="Colchón de la colección"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
+                <Image
+                  src="/placeholder-colchon-3.jpg"
+                  alt="Colchón de la colección"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-dreamgold">Prueba tu colchón hoy</h2>
+              <h2 className="text-3xl sm:text-5xl text-dreamgold font-[family-name:var(--font-abril-fatface)]">Prueba tu colchón hoy</h2>
               <p className="max-w-[600px] text-gray-600 md:text-xl">
                 Date el gusto de probar un colchón de calidad y al mejor precio
               </p>
