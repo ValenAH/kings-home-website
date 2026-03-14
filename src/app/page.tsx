@@ -112,8 +112,8 @@ export default function Home() {
             <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
               <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
                 <Image
-                  src="/placeholder-colchon-1.jpg"
-                  alt="Colchón de la colección"
+                  src="/emperador_fondo.jpg"
+                  alt="Colchón Emperador"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-300"
                 />
