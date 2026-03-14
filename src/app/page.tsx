@@ -103,6 +103,41 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* Sección Colección de Colchones */}
+        <section id="coleccion" className="w-full py-12 md:py-24 lg:py-32 bg-black">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl sm:text-5xl text-center mb-12 text-dreamgold font-[family-name:var(--font-abril-fatface)]">
+              Nuestra Colección
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
+                <Image
+                  src="/placeholder-colchon-1.jpg"
+                  alt="Colchón de la colección"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
+                <Image
+                  src="/placeholder-colchon-2.jpg"
+                  alt="Colchón de la colección"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
+                <Image
+                  src="/placeholder-colchon-3.jpg"
+                  alt="Colchón de la colección"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
