@@ -128,8 +128,8 @@ export default function Home() {
               </div>
               <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-900">
                 <Image
-                  src="/placeholder-colchon-3.jpg"
-                  alt="Colchón de la colección"
+                  src="/rey_basecama_fondo.png"
+                  alt="Colchón Rey con base cama"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-300"
                 />
