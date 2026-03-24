@@ -1,18 +1,22 @@
 import type { Metadata } from "next"
-import { Inter, Abril_Fatface, Outfit } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.css"
 import { Header } from "@/components/Header/header" 
 import Link from "next/link" 
 import type React from "react"
 
-const inter = Inter({ subsets: ["latin"] })
-const abrilFatface = Abril_Fatface({ 
-  weight: "400", 
-  subsets: ["latin"],
+const googleSans = localFont({
+  src: "../../public/fonts/GoogleSansFlex.ttf",
+  variable: "--font-google-sans"
+})
+
+const abrilFatface = localFont({
+  src: "../../public/fonts/AbrilFatface-Regular.ttf",
   variable: "--font-abril-fatface"
 })
-const outfit = Outfit({ 
-  subsets: ["latin"],
+
+const outfit = localFont({
+  src: "../../public/fonts/GoogleSansFlex.ttf",
   variable: "--font-outfit"
 })
 
@@ -28,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.className} ${abrilFatface.variable} ${outfit.variable} relative`}>
+      <body className={`${googleSans.className} ${abrilFatface.variable} ${outfit.variable} relative`}>
         <Header />
         {children}
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-200 bg-gray-100">
