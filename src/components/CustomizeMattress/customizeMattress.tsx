@@ -3,12 +3,28 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
+const tamanos = [
+  { value: "individual", label: "Individual", medida: "100x190" },
+  { value: "semidoble", label: "Semidoble", medida: "120x190" },
+  { value: "doble", label: "Doble", medida: "140x190" },
+  { value: "queen", label: "Queen", medida: "160x190" },
+  { value: "king", label: "King", medida: "200x200" },
+]
+
+const referencias = [
+  { value: "emperador", label: "Emperador", descripcion: "Doble Pillow" },
+  { value: "magnate", label: "Magnate", descripcion: "One Pillow" },
+  { value: "rey", label: "Rey", descripcion: "Estándar" },
+]
+
 export function CustomizeMattress() {
-  const [firmeza, setFirmeza] = useState(50)
   const [tamano, setTamano] = useState("individual")
-  const [material, setMaterial] = useState("memory_foam")
+  const [referencia, setReferencia] = useState("emperador")
   const [showSummary, setShowSummary] = useState(false)
   const router = useRouter()
+  
+  const getTamanoInfo = () => tamanos.find(t => t.value === tamano)
+  const getReferenciaInfo = () => referencias.find(r => r.value === referencia)
 
   const handleCrearColchon = () => {
     setShowSummary(true)
@@ -16,9 +32,8 @@ export function CustomizeMattress() {
 
   const handleConfirmarPedido = () => {
     setShowSummary(false)
-    // Mostrar un mensaje de confirmación
     const toast = document.createElement("div")
-    toast.className = "fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded shadow-lg"
+    toast.className = "fixed bottom-4 right-4 bg-[#CFA15C] text-white p-4 rounded shadow-lg font-[family-name:var(--font-outfit)]"
     toast.textContent = "Colchón añadido al carrito"
     document.body.appendChild(toast)
     setTimeout(() => {
@@ -28,120 +43,84 @@ export function CustomizeMattress() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
-      <h3 className="text-2xl font-bold text-dreamgold mb-6">Personaliza tu colchón ideal</h3>
-
-      <div className="space-y-8">
+    <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-none p-8 md:p-12">
+      <div className="space-y-10">
         <div className="space-y-4">
-          <label htmlFor="firmeza" className="block text-lg font-semibold">
-            Firmeza
-          </label>
-          <input
-            type="range"
-            id="firmeza"
-            min="0"
-            max="100"
-            step="1"
-            value={firmeza}
-            onChange={(e) => setFirmeza(Number(e.target.value))}
-            className="w-full"
-          />
-          <p className="text-sm text-gray-600">
-            {firmeza < 33 ? "Suave" : firmeza < 66 ? "Medio" : "Firme"} - {firmeza}%
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <p className="text-lg font-semibold">Tamaño</p>
-          <div className="flex flex-wrap gap-4">
-            {["individual", "matrimonial", "queen", "king"].map((size) => (
-              <label key={size} className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="tamano"
-                  value={size}
-                  checked={tamano === size}
-                  onChange={(e) => setTamano(e.target.value)}
-                  className="form-radio text-dreamblue"
-                />
-                <span className="capitalize">{size}</span>
-              </label>
+          <p className="text-lg font-[family-name:var(--font-outfit)] text-gray-800 uppercase tracking-wide">Tamaño</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {tamanos.map((size) => (
+              <button
+                key={size.value}
+                onClick={() => setTamano(size.value)}
+                className={`py-4 px-4 !border !border-solid transition-colors font-[family-name:var(--font-outfit)] flex flex-col items-center
+                  ${tamano === size.value 
+                    ? "!border-[#CFA15C] bg-[#CFA15C] text-white" 
+                    : "!border-gray-300 text-gray-700 hover:!border-[#CFA15C]"
+                  }`}
+              >
+                <span className="font-medium">{size.label}</span>
+                <span className={`text-xs mt-1 ${tamano === size.value ? "text-white/80" : "text-gray-400"}`}>{size.medida}</span>
+              </button>
             ))}
           </div>
         </div>
 
         <div className="space-y-4">
-          <p className="text-lg font-semibold">Material</p>
-          <div className="flex flex-wrap gap-4">
-            {[
-              { value: "memory_foam", label: "Memory Foam" },
-              { value: "latex", label: "Látex" },
-              { value: "innerspring", label: "Resortes" },
-              { value: "hybrid", label: "Híbrido" },
-            ].map((option) => (
-              <label key={option.value} className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="material"
-                  value={option.value}
-                  checked={material === option.value}
-                  onChange={(e) => setMaterial(e.target.value)}
-                  className="form-radio text-dreamblue"
-                />
-                <span>{option.label}</span>
-              </label>
+          <p className="text-lg font-[family-name:var(--font-outfit)] text-gray-800 uppercase tracking-wide">Referencia</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {referencias.map((ref) => (
+              <button
+                key={ref.value}
+                onClick={() => setReferencia(ref.value)}
+                className={`py-4 px-6 !border !border-solid transition-colors font-[family-name:var(--font-outfit)] flex flex-col items-center
+                  ${referencia === ref.value 
+                    ? "!border-[#CFA15C] bg-[#CFA15C] text-white" 
+                    : "!border-gray-300 text-gray-700 hover:!border-[#CFA15C]"
+                  }`}
+              >
+                <span className="font-medium">{ref.label}</span>
+                <span className={`text-xs mt-1 ${referencia === ref.value ? "text-white/80" : "text-gray-400"}`}>{ref.descripcion}</span>
+              </button>
             ))}
           </div>
         </div>
       </div>
 
       <button
-        className="w-full mt-8 bg-dreamblue text-white py-2 px-4 rounded hover:bg-dreamblue/90 transition-colors"
+        className="w-full mt-12 bg-black text-white py-4 px-8 font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:bg-gray-800 transition-colors"
         onClick={handleCrearColchon}
       >
         Crear mi colchón personalizado
       </button>
 
       {showSummary && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg max-w-md w-full">
-            <h4 className="text-xl font-bold mb-4">Resumen de tu colchón personalizado</h4>
-            <p className="text-sm text-gray-600 mb-4">
-              Revisa los detalles de tu colchón personalizado antes de añadirlo al carrito.
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 md:p-10 max-w-md w-full mx-4">
+            <h4 className="text-2xl font-[family-name:var(--font-abril-fatface)] text-[#CFA15C] mb-4">
+              Resumen de tu colchón
+            </h4>
+            <p className="text-sm text-gray-500 mb-6 font-[family-name:var(--font-outfit)]">
+              Revisa los detalles antes de añadirlo al carrito.
             </p>
-            <div className="grid gap-4 mb-6">
-              <div className="grid grid-cols-2 items-center gap-4">
-                <span className="font-semibold">Firmeza:</span>
-                <span>
-                  {firmeza < 33 ? "Suave" : firmeza < 66 ? "Medio" : "Firme"} - {firmeza}%
-                </span>
+            <div className="space-y-4 mb-8 font-[family-name:var(--font-outfit)]">
+              <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                <span className="text-gray-500 uppercase text-sm tracking-wide">Tamaño</span>
+                <span className="text-gray-800">{getTamanoInfo()?.label} <span className="text-gray-400">({getTamanoInfo()?.medida})</span></span>
               </div>
-              <div className="grid grid-cols-2 items-center gap-4">
-                <span className="font-semibold">Tamaño:</span>
-                <span className="capitalize">{tamano}</span>
-              </div>
-              <div className="grid grid-cols-2 items-center gap-4">
-                <span className="font-semibold">Material:</span>
-                <span>
-                  {material === "memory_foam"
-                    ? "Memory Foam"
-                    : material === "latex"
-                      ? "Látex"
-                      : material === "innerspring"
-                        ? "Resortes"
-                        : "Híbrido"}
-                </span>
+              <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                <span className="text-gray-500 uppercase text-sm tracking-wide">Referencia</span>
+                <span className="text-gray-800">{getReferenciaInfo()?.label} <span className="text-gray-400">({getReferenciaInfo()?.descripcion})</span></span>
               </div>
             </div>
-            <div className="flex justify-end space-x-4">
+            <div className="flex gap-4">
               <button
-                className="px-4 py-2 border border-gray-300 rounded text-gray-700 hover:bg-gray-100 transition-colors"
+                className="flex-1 py-3 px-6 !border !border-solid !border-gray-300 text-gray-700 font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:!border-gray-500 transition-colors"
                 onClick={() => setShowSummary(false)}
               >
                 Cancelar
               </button>
               <button
-                className="px-4 py-2 bg-dreamblue text-white rounded hover:bg-dreamblue/90 transition-colors"
+                className="flex-1 py-3 px-6 bg-black text-white font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:bg-gray-800 transition-colors"
                 onClick={handleConfirmarPedido}
               >
                 Añadir al carrito
