@@ -33,8 +33,8 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-12">
-                  <Link 
-                    href="https://wa.me/573196835927" 
+                  <Link
+                    href="https://wa.me/573196835927"
                     target="_blank"
                     className="inline-block px-8 py-4 !border !border-solid !border-gray-500 text-[#C8C6C6] font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:!border-white hover:text-white transition-colors"
                   >
@@ -45,7 +45,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         {/* Sección Crafted for Comfort */}
         <section className="w-full py-16 md:py-24 lg:py-32 bg-white">
           <div className="container px-8 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center text-center">
@@ -55,8 +55,8 @@ export default function Home() {
             <p className="max-w-[600px] text-gray-500 md:text-lg font-[family-name:var(--font-outfit)] mb-10">
               Experimenta el pináculo del lujo en el descanso con nuestros colchones excepcionales. Diseñados para adaptarse a los contornos únicos de tu cuerpo.
             </p>
-            <Link 
-              href="/customize"
+            <Link
+              href="/products"
               className="inline-block px-8 py-4 bg-black text-white font-[family-name:var(--font-outfit)] text-sm tracking-wide hover:bg-gray-800 transition-colors"
             >
               Explorar colección
