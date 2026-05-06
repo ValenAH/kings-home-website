@@ -54,7 +54,7 @@ export const products: Product[] = [
     name: "Rey",
     description: "Semiortopédico - Calidad excepcional a un precio accesible. Soporte firme y duradero para un descanso confortable cada noche.",
     price: 500000,
-    image: "/rey_basecama_fondo.png",
+    image: "/rey.png",
     category: "colchon",
     hasSizes: true,
     sizes: [
