@@ -10,8 +10,7 @@ export function Header() {
   const navLinks = [
     { href: "/", label: "Inicio" },
     { href: "/products", label: "Productos" },
-    { href: "/allies", label: "Aliados" },
-    { href: "/#contact", label: "Contacto" },
+    { href: "https://wa.me/573196835927", label: "Contacto", target: "_blank" },
   ]
 
   return (
@@ -29,6 +28,7 @@ export function Header() {
               key={link.href}
               className="text-sm font-normal text-[#C8C6C6] hover:text-dreamgold"
               href={link.href}
+              target={link.target}
             >
               {link.label}
             </Link>
@@ -83,6 +83,7 @@ export function Header() {
                   key={link.href}
                   className="text-lg text-[#C8C6C6] hover:text-[#CFA15C] uppercase tracking-wide transition-colors"
                   href={link.href}
+                  target={link.target}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}

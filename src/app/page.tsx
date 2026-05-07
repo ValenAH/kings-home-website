@@ -32,11 +32,17 @@ export default function Home() {
                     Colchones diseñados para transformar la forma en que duermes
                   </p>
                 </div>
-                <div className="mt-12">
+                <div className="mt-12 flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/products"
+                    className="inline-block px-8 py-4 bg-[#CFA15C] text-black font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:bg-[#b8893f] transition-colors text-center"
+                  >
+                    Ver productos
+                  </Link>
                   <Link
                     href="https://wa.me/573196835927"
                     target="_blank"
-                    className="inline-block px-8 py-4 !border !border-solid !border-gray-500 text-[#C8C6C6] font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:!border-white hover:text-white transition-colors"
+                    className="inline-block px-8 py-4 !border !border-solid !border-gray-500 text-[#C8C6C6] font-[family-name:var(--font-outfit)] text-sm uppercase tracking-wide hover:!border-white hover:text-white transition-colors text-center"
                   >
                     Asesoría personalizada
                   </Link>
@@ -145,9 +151,9 @@ export default function Home() {
               <p className="max-w-[600px] text-gray-600 md:text-xl">
                 Date el gusto de probar un colchón de calidad y al mejor precio
               </p>
-              <Link href="/customize">
+              <Link href="/products">
                 <Button size="lg" className="bg-dreamblue text-white hover:bg-dreamblue/90">
-                  Comprar ahora
+                  Ver productos
                 </Button>
               </Link>
             </div>

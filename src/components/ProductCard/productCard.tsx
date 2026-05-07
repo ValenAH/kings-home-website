@@ -6,6 +6,11 @@ import { Product, formatPrice } from "@/data/products"
 import { ChevronDown } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 
+function parseLabel(label: string) {
+  const match = label.match(/^(.*?)\s*\((.+)\)$/)
+  return match ? { main: match[1], sub: match[2] } : { main: label, sub: null }
+}
+
 interface ProductCardProps {
   product: Product
 }
@@ -49,7 +54,7 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <div className="bg-white shadow-md overflow-hidden group">
+    <div className="bg-white shadow-md group">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={product.image}
@@ -57,6 +62,15 @@ export function ProductCard({ product }: ProductCardProps) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
+        {product.badge && (
+          <span className={`absolute top-3 left-3 px-3 py-1 text-xs uppercase tracking-wide font-[family-name:var(--font-outfit)] font-semibold
+            ${product.badge === 'Más vendido' ? 'bg-[#CFA15C] text-black' : ''}
+            ${product.badge === 'Mejor precio' ? 'bg-black text-white' : ''}
+            ${product.badge === 'Premium' ? 'bg-[#1E3A8A] text-white' : ''}
+          `}>
+            {product.badge}
+          </span>
+        )}
       </div>
 
       <div className="p-6">
@@ -64,7 +78,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.name}
         </h3>
 
-        <p className="text-gray-500 font-[family-name:var(--font-outfit)] text-sm mb-4 line-clamp-3">
+        <p className="text-gray-500 font-[family-name:var(--font-outfit)] text-sm mb-4">
           {product.description}
         </p>
 
@@ -74,14 +88,25 @@ export function ProductCard({ product }: ProductCardProps) {
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="w-full py-3 px-4 !border !border-solid !border-gray-300 text-left font-[family-name:var(--font-outfit)] flex items-center justify-between hover:!border-[#CFA15C] transition-colors"
             >
-              <span className="text-gray-700">
-                {currentSizeInfo?.label} - {currentSizeInfo?.medida}
+              <span className="flex flex-col leading-tight">
+                <span className="text-gray-700">
+                  {parseLabel(currentSizeInfo?.label ?? '').main}
+                  <span className="text-gray-400 ml-2">— {currentSizeInfo?.medida}</span>
+                </span>
+                {parseLabel(currentSizeInfo?.label ?? '').sub && (
+                  <span className="text-xs text-gray-400 font-[family-name:var(--font-google-sans)]">
+                    {parseLabel(currentSizeInfo?.label ?? '').sub}
+                  </span>
+                )}
               </span>
               <ChevronDown className={`h-5 w-5 text-gray-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute top-full left-0 right-0 bg-white !border !border-solid !border-gray-300 !border-t-0 z-10 shadow-lg">
+              <div
+                className="absolute top-full left-0 right-0 bg-white !border !border-solid !border-gray-300 !border-t-0 z-10 shadow-lg max-h-60 overflow-y-auto"
+                onWheel={(e) => e.stopPropagation()}
+              >
                 {product.sizes.map((size) => (
                   <button
                     key={size.value}
@@ -92,7 +117,17 @@ export function ProductCard({ product }: ProductCardProps) {
                     className={`w-full py-3 px-4 text-left font-[family-name:var(--font-outfit)] hover:bg-gray-50 flex justify-between items-center
                       ${selectedSize === size.value ? 'bg-gray-50 text-[#CFA15C]' : 'text-gray-700'}`}
                   >
-                    <span>{size.label} - {size.medida}</span>
+                    <span className="flex flex-col leading-tight">
+                      <span>
+                        {parseLabel(size.label).main}
+                        <span className="text-gray-400 text-sm ml-2">— {size.medida}</span>
+                      </span>
+                      {parseLabel(size.label).sub && (
+                        <span className="text-xs text-gray-400 font-[family-name:var(--font-google-sans)]">
+                          {parseLabel(size.label).sub}
+                        </span>
+                      )}
+                    </span>
                     <span className="text-sm text-gray-400">{formatPrice(size.price)}</span>
                   </button>
                 ))}

@@ -18,12 +18,23 @@ export function ShoppingCart() {
   const { items, removeItem, updateQuantity, totalPrice, clearCart } = useCart()
 
   const handleWhatsAppOrder = () => {
-    const message = items.map(item =>
-      `- ${item.name}${item.sizeLabel ? ` (${item.sizeLabel})` : ''} x${item.quantity} - ${formatPrice(item.price * item.quantity)}`
-    ).join('\n')
+    const itemLines = items.map(item => {
+      const lines = [`🛏️ *${item.name}*`]
+      if (item.sizeLabel) lines.push(`   Tamaño: ${item.sizeLabel}`)
+      if (item.quantity > 1) lines.push(`   Cantidad: ${item.quantity}`)
+      lines.push(`   Subtotal: ${formatPrice(item.price * item.quantity)}`)
+      return lines.join('\n')
+    }).join('\n\n')
 
-    const totalMessage = `\n\nTotal: ${formatPrice(totalPrice)}`
-    const fullMessage = `Hola, me gustaría hacer el siguiente pedido:\n\n${message}${totalMessage}`
+    const fullMessage = [
+      '¡Hola! 👋 Quisiera hacer el siguiente pedido:',
+      '',
+      itemLines,
+      '',
+      `💰 *Total: ${formatPrice(totalPrice)}*`,
+      '',
+      '¿Me pueden confirmar disponibilidad y forma de pago? ¡Gracias!',
+    ].join('\n')
 
     window.open(`https://wa.me/573196835927?text=${encodeURIComponent(fullMessage)}`, '_blank')
   }
@@ -135,10 +146,6 @@ export function ShoppingCart() {
                   <div className="flex justify-between text-gray-600">
                     <span>Subtotal ({items.reduce((sum, item) => sum + item.quantity, 0)} productos)</span>
                     <span>{formatPrice(totalPrice)}</span>
-                  </div>
-                  <div className="flex justify-between text-gray-600">
-                    <span>Envío</span>
-                    <span className="text-green-600">Gratis</span>
                   </div>
                   <hr className="my-4" />
                   <div className="flex justify-between text-xl font-bold">
