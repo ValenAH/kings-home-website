@@ -14,6 +14,7 @@ export type Product = {
   category: "colchon" | "almohada" | "combo"
   hasSizes: boolean
   sizes?: ProductSize[]
+  badge?: string
 }
 
 export const products: Product[] = [
@@ -24,6 +25,7 @@ export const products: Product[] = [
     price: 800000,
     image: "/emperador_fondo.jpg",
     category: "colchon",
+    badge: "Premium",
     hasSizes: true,
     sizes: [
       { value: "individual", label: "Individual", medida: "100x190", price: 800000 },
@@ -40,6 +42,7 @@ export const products: Product[] = [
     price: 680000,
     image: "/magnate_fondo.png",
     category: "colchon",
+    badge: "Más vendido",
     hasSizes: true,
     sizes: [
       { value: "individual", label: "Individual", medida: "100x190", price: 680000 },
@@ -56,6 +59,7 @@ export const products: Product[] = [
     price: 500000,
     image: "/rey.png",
     category: "colchon",
+    badge: "Mejor precio",
     hasSizes: true,
     sizes: [
       { value: "individual", label: "Individual", medida: "100x190", price: 500000 },
@@ -86,10 +90,11 @@ export const products: Product[] = [
   {
     id: "combo-soberano",
     name: "Combo Soberano",
-    description: "Colchón Emperador + Basecama + Almohadas Imperiales. El pack completo para el descanso más lujoso. Incluye 1 almohada en medida Individual, 2 almohadas en las demás medidas.",
+    description: "Colchón Emperador + Basecama + Almohadas Imperiales. El pack completo para el descanso más lujoso.",
     price: 1060000,
     image: "/combo_soberano.png",
     category: "combo",
+    badge: "Premium",
     hasSizes: true,
     sizes: [
       { value: "individual", label: "Individual (1 almohada)", medida: "100x190", price: 1060000 },
@@ -102,10 +107,11 @@ export const products: Product[] = [
   {
     id: "combo-almirante",
     name: "Combo Almirante",
-    description: "Colchón Magnate + Basecama + Almohadas Imperiales. Equilibrio perfecto entre confort y precio. Incluye 1 almohada en medida Individual, 2 almohadas en las demás medidas.",
+    description: "Colchón Magnate + Basecama + Almohadas Imperiales. Equilibrio perfecto entre confort y precio.",
     price: 940000,
     image: "/combo_almirante.png",
     category: "combo",
+    badge: "Más vendido",
     hasSizes: true,
     sizes: [
       { value: "individual", label: "Individual (1 almohada)", medida: "100x190", price: 940000 },
@@ -118,10 +124,11 @@ export const products: Product[] = [
   {
     id: "combo-conde",
     name: "Combo Conde",
-    description: "Colchón Rey + Basecama + Almohadas Imperiales. Calidad excepcional al mejor precio. Incluye 1 almohada en medida Individual, 2 almohadas en las demás medidas.",
+    description: "Colchón Rey + Basecama + Almohadas Imperiales. Calidad excepcional al mejor precio.",
     price: 760000,
     image: "/combo_conde.png",
     category: "combo",
+    badge: "Mejor precio",
     hasSizes: true,
     sizes: [
       { value: "individual", label: "Individual (1 almohada)", medida: "100x190", price: 760000 },

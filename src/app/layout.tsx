@@ -22,9 +22,73 @@ const outfit = localFont({
   variable: "--font-outfit"
 })
 
+const BASE_URL = 'https://hogardereyes.netlify.app'
+
 export const metadata: Metadata = {
-  title: "Hogar de Reyes - Tu descanso perfecto",
-  description: "Descubre el colchón ideal para un sueño reparador",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: 'Hogar de Reyes — Colchones y Combos en Medellín',
+    template: '%s | Hogar de Reyes',
+  },
+  description: 'Colchones, almohadas y combos de alta calidad con entrega en Medellín. Líneas Emperador, Magnate y Rey desde $500.000 COP. ¡Asesoría gratis por WhatsApp!',
+  keywords: [
+    'colchones Medellín',
+    'combo colchón basecama Medellín',
+    'colchón queen Medellín',
+    'almohadas Colombia',
+    'colchón pillow top',
+    'colchón semiortopédico precio',
+    'Hogar de Reyes colchones',
+  ],
+  authors: [{ name: 'Hogar de Reyes' }],
+  creator: 'Hogar de Reyes',
+  openGraph: {
+    type: 'website',
+    locale: 'es_CO',
+    url: BASE_URL,
+    siteName: 'Hogar de Reyes',
+    title: 'Hogar de Reyes — Colchones y Combos en Medellín',
+    description: 'Colchones, almohadas y combos de alta calidad con entrega en Medellín. Líneas Emperador, Magnate y Rey desde $500.000 COP.',
+    images: [
+      {
+        url: '/magnate_almohadas_optimized.png',
+        width: 900,
+        height: 900,
+        alt: 'Colchones Hogar de Reyes — Medellín',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hogar de Reyes — Colchones y Combos en Medellín',
+    description: 'Colchones, almohadas y combos desde $500.000 COP. Entrega en Medellín.',
+    images: ['/magnate_almohadas_optimized.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
+}
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Hogar de Reyes',
+  description: 'Venta de colchones, almohadas y combos de alta calidad en Medellín, Colombia.',
+  url: BASE_URL,
+  telephone: '+573196835927',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Medellín',
+    addressRegion: 'Antioquia',
+    addressCountry: 'CO',
+  },
+  priceRange: '$$',
+  image: `${BASE_URL}/magnate_almohadas_optimized.png`,
+  sameAs: [`https://wa.me/573196835927`],
 }
 
 export default function RootLayout({
@@ -35,6 +99,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${googleSans.className} ${abrilFatface.variable} ${outfit.variable} relative`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <CartProvider>
           <Header />
           {children}
