@@ -75,18 +75,6 @@ export default function ProductsPage() {
           Descubre nuestra selección de combos, colchones y almohadas diseñados para brindarte el mejor descanso.
         </p>
 
-        {/* Combos */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-[family-name:var(--font-abril-fatface)] text-black mb-8">
-            Combos
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {combos.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </section>
-
         {/* Colchones */}
         <section className="mb-16">
           <h2 className="text-2xl font-[family-name:var(--font-abril-fatface)] text-black mb-8">
@@ -94,6 +82,18 @@ export default function ProductsPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {colchones.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </section>
+
+        {/* Combos */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-[family-name:var(--font-abril-fatface)] text-black mb-8">
+            Combos
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {combos.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
