@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { Product, formatPrice } from "@/data/products"
 import { ChevronDown } from "lucide-react"
@@ -21,6 +21,20 @@ export function ProductCard({ product }: ProductCardProps) {
     product.hasSizes && product.sizes ? product.sizes[0].value : ""
   )
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!isDropdownOpen) return
+
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [isDropdownOpen])
 
   const currentPrice = product.hasSizes && product.sizes
     ? product.sizes.find(s => s.value === selectedSize)?.price || product.price
@@ -83,7 +97,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </p>
 
         {product.hasSizes && product.sizes && (
-          <div className="mb-4 relative">
+          <div className="mb-4 relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="w-full py-3 px-4 !border !border-solid !border-gray-300 text-left font-[family-name:var(--font-outfit)] flex items-center justify-between hover:!border-[#CFA15C] transition-colors"
